@@ -1036,11 +1036,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1627177698}
-  - component: {fileID: 1627177697}
   - component: {fileID: 1627177699}
   - component: {fileID: 1627177700}
   - component: {fileID: 1627177702}
   - component: {fileID: 1627177701}
+  - component: {fileID: 1627177703}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1048,27 +1048,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1627177697
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627177696}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aff9a436e9e87fd4586c6e40b1726df6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1627177698
 Transform:
   m_ObjectHideFlags: 0
@@ -1222,6 +1201,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1627177703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627177696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a740b8f7df8f4ea40b906944ce7739dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  jumpForce: 8
+  isDead: 0
+  slideSpeed: 3
+  godMode: 0
 --- !u!1 &1901867122
 GameObject:
   m_ObjectHideFlags: 0
