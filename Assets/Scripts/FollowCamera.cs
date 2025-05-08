@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target; //따라갈 대상 설정
-    public float offsetX = -30f;
+    public float offsetX = -6f;
 
     void Start()
     {
