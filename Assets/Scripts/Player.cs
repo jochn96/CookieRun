@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,7 +17,14 @@ public class Player : MonoBehaviour
     bool isJump = false;
     bool isSlide = false;
 
+    bool isGrounded = false; //땅 밟고있는지
+
     public bool godMode = false;
+
+    public Transform groundCheck;   // 캐릭터 발밑 위치
+    public float groundCheckRadius = 0.1f;
+    public LayerMask groundLayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +39,12 @@ public class Player : MonoBehaviour
             Debug.LogError("리지드바디 없음");
 
 
+        isJump = false;
+        isSlide = false;
+
+
+
+
     }
 
     // Update is called once per frame
@@ -38,31 +52,46 @@ public class Player : MonoBehaviour
     {
         if (isDead)
         {
+            if (deathCooldown <= 0)
+            {
+                //게임 재시작 
+            }
+            else
+            {
+                deathCooldown -= Time.deltaTime;
+            }
+
 
         }
-        else 
+        else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 isJump = true;
+
+
+
             }
 
             else if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 Debug.Log("작동됨?");
                 isSlide = true;
-            }    
-                       
-        }
+            }
 
+        }
+        //animator.SetBool("isJump", !isGrounded);   땅이 아닐시 점프모션
 
     }
 
     private void FixedUpdate()
     {
-        if(isDead) return;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); //바닥 감지 기능 추가
+             
+        
+        if (isDead) return;
 
-        Vector3 velocity = _rigidbody.velocity;  //가속도 가져옴
+        Vector3 velocity = _rigidbody.velocity;  // _rigidbody 가속도 가져옴
         velocity.x = moveSpeed;
 
         if (isJump)
@@ -70,14 +99,47 @@ public class Player : MonoBehaviour
             velocity.y = jumpForce;
             isJump = false;
         }
-        else if (isSlide)
+
+        // 점프 애니메이션은 땅에 안 닿아 있으면 true
+        animator.SetBool("isJump", !isGrounded);
+
+        // 슬라이드 처리
+        if (isSlide)
         {
             velocity.x = slideSpeed;
+            animator.SetBool("isSlide", true);
             isSlide = false;
         }
+        else
+        {
+            animator.SetBool("isSlide", false);
+        }
+
 
         _rigidbody.velocity = velocity;
 
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGrounded = true;
+
+        if (godMode) return;
+
+        if (isDead) return;
+
+
+
+
+        animator.SetInteger("IsDead", 1);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
+    }
+
+
 
 }
