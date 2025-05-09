@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
     Animator animator;
     Rigidbody2D _rigidbody;
 
-    public float moveSpeed = 3f;
-    public float jumpForce = 8f;
+    public float moveSpeed = 3f; //움직이는 속도
+    public float jumpForce = 8f; //점프 속도
     public bool isDead = false;
     float deathCooldown = 0f;
-    public float slideSpeed = 3f;
+    public float slideSpeed = 3f; //슬라이딩 속도
 
     bool isJump = false;
     bool isSlide = false;
@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
             }
 
             else if (Input.GetKeyDown(KeyCode.LeftShift))
-            {  
+            {
+                Debug.Log("작동됨?");
                 isSlide = true;
             }    
                        
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
     {
         if(isDead) return;
 
-        Vector3 velocity = _rigidbody.velocity;
+        Vector3 velocity = _rigidbody.velocity;  //가속도 가져옴
         velocity.x = moveSpeed;
 
         if (isJump)
