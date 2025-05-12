@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float slideSpeed = 3f; //슬라이딩 속도
     public GameObject deathUI;
 
+    //float deathCooldown = 0f; 데스 쿨다운은 필요 없을것 같아  주석처리
 
 
     bool isJump = false;
@@ -55,6 +56,15 @@ public class Player : MonoBehaviour
     {
         if (isDead)
         {
+            //if (deathCooldown <= 0)
+            //{
+            //    //게임 재시작
+            //}
+            //else
+            //{
+            //    deathCooldown -= Time.deltaTime;
+            //}
+            // 이 부분도 UI 팝업으로 실행되어 필요없는 부분이라 주석처리.
 
         }
         else
@@ -136,7 +146,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle")) //충돌시 데미지 처리
         {
             
-            GameManager.Instance.TakeDamage(50); // 충돌시 5 데미지
+            GameManager.Instance.TakeDamage(15); // 충돌시 15 데미지
         }
 
 
@@ -150,10 +160,13 @@ public class Player : MonoBehaviour
         isGrounded = false;
 
         if (isDead) return;
+
+        
     }
 
     public void RestartGame() //게임 재시작 기능 추가
     {
+        Time.timeScale = 1f; // 다시 시간 흐르게
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -162,6 +175,9 @@ public class Player : MonoBehaviour
         isDead = true;
         animator.SetInteger("IsDead", 1);
         deathUI.SetActive(true);
+        //Time.timeScale = 0f; // 게임 정지
     }
+
+   
 
 }
