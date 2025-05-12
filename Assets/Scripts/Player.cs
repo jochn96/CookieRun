@@ -168,5 +168,11 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void Die()
+    {
+        isDead = true;
+        animator.SetInteger("IsDead", 1);
+        deathUI.SetActive(true);
+    }
 
 }
