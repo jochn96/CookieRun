@@ -970,6 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 938104737}
+  - component: {fileID: 938104738}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -992,6 +993,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938104738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938104736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cafa118d446c74ab72c02bff089800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
 --- !u!1 &1035133824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1630,7 @@ GameObject:
   - component: {fileID: 1344844833}
   m_Layer: 0
   m_Name: Obstacles
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2357,14 +2372,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1344844833}
     m_Modifications:
-    - target: {fileID: 2418896505500485100, guid: 971bc85d7fa448e418a77d3e14c14737, type: 3}
-      propertyPath: totalPadding
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2418896505500485100, guid: 971bc85d7fa448e418a77d3e14c14737, type: 3}
-      propertyPath: widthPadding
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8605168228078452639, guid: 971bc85d7fa448e418a77d3e14c14737, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44
@@ -2519,21 +2526,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1987662762925078585, guid: 83555737a97de05478c08e092849770a, type: 3}
-      propertyPath: totalPadding
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1987662762925078585, guid: 83555737a97de05478c08e092849770a, type: 3}
-      propertyPath: widthPadding
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3433725615315448632, guid: 83555737a97de05478c08e092849770a, type: 3}
       propertyPath: m_Name
       value: obstacletop
-      objectReference: {fileID: 0}
-    - target: {fileID: 3433725615315448632, guid: 83555737a97de05478c08e092849770a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
