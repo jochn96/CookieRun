@@ -20,14 +20,25 @@ public class BgLooper : MonoBehaviour
 
         for (int i = 0; i < obstacleCount; i++)
         {
-            obstacleLastPosition = obstacles[i].SetRandomPlace(obstacleLastPosition, obstacleCount);
+            
+            obstacleLastPosition = obstacles[i].transform.position;
+            Debug.Log(obstacleLastPosition);
+            //obstacleLastPosition = obstacles[i].SetRandomPlace(obstacleLastPosition, obstacleCount);
         }
+
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //충돌체에 적용
     {
         Debug.Log("Triggerd:" + collision.name);
+
+        Obstacle obstacle = collision.GetComponent<Obstacle>();
+        if (obstacle)
+        {
+            obstacleLastPosition = obstacle.SetRandomPlace(collision.transform.position, obstacleCount);
+        }
+
         
         if (collision.CompareTag("BackGround"))
         {
@@ -48,23 +59,9 @@ public class BgLooper : MonoBehaviour
             return;
         }
 
+        
 
-
-            Obstacle obstacle1 = collision.GetComponent<Obstacle>();
-        if (obstacle1)
-        {
-            obstacleLastPosition = obstacle1.SetRandomPlace(obstacleLastPosition, obstacleCount);
-        }
-        Obstacle obstacle2 = collision.GetComponent<Obstacle>();
-        if (obstacle2)
-        {
-            obstacleLastPosition = obstacle2.SetRandomPlace(obstacleLastPosition, obstacleCount);
-        }
-        Obstacle obstacletop = collision.GetComponent<Obstacle>();
-        if (obstacletop)
-        {
-            obstacleLastPosition = obstacletop.SetRandomPlace(obstacleLastPosition, obstacleCount);
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
