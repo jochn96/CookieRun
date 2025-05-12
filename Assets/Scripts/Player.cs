@@ -68,12 +68,12 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 isJump = true;
-
+                
 
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.LeftShift))
+            else if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
             {
                 Debug.Log("¿€µøµ ?");
                 isSlide = true;
