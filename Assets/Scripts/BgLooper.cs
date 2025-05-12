@@ -23,7 +23,7 @@ public class BgLooper : MonoBehaviour
             
             obstacleLastPosition = obstacles[i].transform.position;
             Debug.Log(obstacleLastPosition);
-            //obstacleLastPosition = obstacles[i].SetRandomPlace(obstacleLastPosition, obstacleCount);
+            obstacleLastPosition = obstacles[i].SetRandomPlace(obstacleLastPosition, obstacleCount);
         }
 
 
@@ -76,7 +76,7 @@ public class BgLooper : MonoBehaviour
         //    collision.transform.position = pos;
         //    return;
         //}
-        Debug.Log("Collision2D");
+        
 
     }
 
