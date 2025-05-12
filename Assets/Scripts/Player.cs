@@ -161,13 +161,7 @@ public class Player : MonoBehaviour
 
         if (isDead) return;
 
-        //isDead = true;
-        //animator.SetInteger("IsDead", 1);
-
-        //if (deathUI != null)
-        //{
-        //    deathUI.SetActive(true); //게임 오버시 UI 화면 출력 추가
-        //}
+        
     }
 
     public void RestartGame() //게임 재시작 기능 추가
@@ -181,7 +175,7 @@ public class Player : MonoBehaviour
         isDead = true;
         animator.SetInteger("IsDead", 1);
         deathUI.SetActive(true);
-        Time.timeScale = 0f; // 게임 정지
+        //Time.timeScale = 0f; // 게임 정지
     }
 
    
