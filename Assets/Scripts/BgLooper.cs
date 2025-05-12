@@ -25,11 +25,11 @@ public class BgLooper : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //충돌체에 적용
     {
         Debug.Log("Triggerd:" + collision.name);
         
-        if (collision.CompareTag("BackGruond"))
+        if (collision.CompareTag("BackGround"))
         {
             float widthOfBgObject = ((BoxCollider2D)collision).size.x;
             Vector3 pos = collision.transform.position;

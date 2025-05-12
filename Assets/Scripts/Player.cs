@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.LeftShift))
+            else if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
             {
                 Debug.Log("¿€µøµ ?");
                 isSlide = true;
