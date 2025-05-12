@@ -1779,7 +1779,7 @@ MonoBehaviour:
   jumpForce: 8
   isDead: 0
   slideSpeed: 3
-  deathUI: {fileID: 1469754073}
+  deathUI: {fileID: 138357444}
   godMode: 0
   groundCheck: {fileID: 290781566}
   groundCheckRadius: 0.1
