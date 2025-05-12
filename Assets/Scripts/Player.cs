@@ -77,11 +77,15 @@ public class Player : MonoBehaviour
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
+            else if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
             {
-                Debug.Log("작동됨?");
                 isSlide = true;
             }
+            else
+            {
+                isSlide = false;
+            }
+
             //animator.SetBool("isJump", !isGrounded);   땅이 아닐시 점프모션
 
             if (Input.GetKeyDown(KeyCode.K) && !isDead)    //테스트용으로 사망하는 코드 넣어놨습니다.
@@ -117,8 +121,7 @@ public class Player : MonoBehaviour
         if (isSlide)
         {
             velocity.x = slideSpeed;
-            animator.SetBool("isSlide", true);
-            isSlide = false;
+            animator.SetBool("isSlide", true);            
         }
         else
         {
@@ -151,13 +154,13 @@ public class Player : MonoBehaviour
 
         if (isDead) return;
 
-        isDead = true;
-        animator.SetInteger("IsDead", 1);
+        //isDead = true;
+        //animator.SetInteger("IsDead", 1);
 
-        if (deathUI != null)
-        {
-            deathUI.SetActive(true); //게임 오버시 UI 화면 출력 추가
-        }
+        //if (deathUI != null)
+        //{
+        //    deathUI.SetActive(true); //게임 오버시 UI 화면 출력 추가
+        //}
     }
 
     public void RestartGame() //게임 재시작 기능 추가

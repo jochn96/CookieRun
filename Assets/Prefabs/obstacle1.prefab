@@ -51,8 +51,8 @@ MonoBehaviour:
   topObject: {fileID: 0}
   bottomObject1: {fileID: 1193677390053185057}
   bottomObject2: {fileID: 0}
-  widthPadding: 4
-  totalPadding: 30
+  widthPadding: 10
+  totalPadding: 35
 --- !u!61 &7613694020891188676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 5d9134a446ef28e429b38c05343ee459, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf5b813dfe4542f4eba2535f3c214348, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
