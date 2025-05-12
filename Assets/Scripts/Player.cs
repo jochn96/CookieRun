@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle")) //충돌시 데미지 처리
         {
             
-            GameManager.Instance.TakeDamage(50); // 충돌시 5 데미지
+            GameManager.Instance.TakeDamage(15); // 충돌시 15 데미지
         }
 
 
@@ -172,6 +172,7 @@ public class Player : MonoBehaviour
 
     public void RestartGame() //게임 재시작 기능 추가
     {
+        Time.timeScale = 1f; // 다시 시간 흐르게
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -180,6 +181,9 @@ public class Player : MonoBehaviour
         isDead = true;
         animator.SetInteger("IsDead", 1);
         deathUI.SetActive(true);
+        Time.timeScale = 0f; // 게임 정지
     }
+
+   
 
 }
