@@ -9,7 +9,7 @@ public class BgLooper : MonoBehaviour
     public int obstacleCount = 0;
     public Vector3 obstacleLastPosition = Vector3.zero;
 
-
+    public GameObject[] obstaclePrefabs;
 
     // Start is called before the first frame update
     void Start()
