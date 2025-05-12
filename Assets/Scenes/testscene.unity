@@ -171,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6940187587976281260, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
-      propertyPath: totalPadding
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940187587976281260, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
-      propertyPath: widthPadding
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7488495168548179527, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
       propertyPath: m_Name
       value: obstacle1 (1)
@@ -543,7 +535,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.12, y: 2.3259852}
+  m_Size: {x: 6.12, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -832,7 +824,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.12, y: 2.377574}
+  m_Size: {x: 6.12, y: 2.4}
   m_EdgeRadius: 0
 --- !u!4 &678896601 stripped
 Transform:
@@ -1273,7 +1265,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.12, y: 2.3259852}
+  m_Size: {x: 6.12, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &1259915092
 GameObject:
@@ -1449,7 +1441,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.12, y: 2.4291625}
+  m_Size: {x: 6.12, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1 &1286446129
 GameObject:
@@ -2324,7 +2316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.12, y: 2.2743967}
+  m_Size: {x: 6.12, y: 2.4}
   m_EdgeRadius: 0
 --- !u!1001 &743818402767360776
 PrefabInstance:
@@ -2399,14 +2391,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1344844833}
     m_Modifications:
-    - target: {fileID: 4091544178644402701, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cf5b813dfe4542f4eba2535f3c214348, type: 3}
-    - target: {fileID: 4091544178644402701, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5468264799314727150, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.39
@@ -2446,14 +2430,6 @@ PrefabInstance:
     - target: {fileID: 5468264799314727150, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940187587976281260, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
-      propertyPath: totalPadding
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6940187587976281260, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
-      propertyPath: widthPadding
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7488495168548179527, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
       propertyPath: m_Name
