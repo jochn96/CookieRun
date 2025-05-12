@@ -50,13 +50,21 @@ public class BgLooper : MonoBehaviour
 
 
 
-            Obstacle obstacle = collision.GetComponent<Obstacle>();
-        if (obstacle)
+            Obstacle obstacle1 = collision.GetComponent<Obstacle>();
+        if (obstacle1)
         {
-            obstacleLastPosition = obstacle.SetRandomPlace(obstacleLastPosition, obstacleCount);
+            obstacleLastPosition = obstacle1.SetRandomPlace(obstacleLastPosition, obstacleCount);
         }
-
-
+        Obstacle obstacle2 = collision.GetComponent<Obstacle>();
+        if (obstacle2)
+        {
+            obstacleLastPosition = obstacle2.SetRandomPlace(obstacleLastPosition, obstacleCount);
+        }
+        Obstacle obstacletop = collision.GetComponent<Obstacle>();
+        if (obstacletop)
+        {
+            obstacleLastPosition = obstacletop.SetRandomPlace(obstacleLastPosition, obstacleCount);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
