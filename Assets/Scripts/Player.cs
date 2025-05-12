@@ -138,9 +138,16 @@ public class Player : MonoBehaviour
     {
         isGrounded = true;
 
+
         if (godMode) return;
 
         if (isDead) return;
+
+        if (collision.gameObject.CompareTag("Obstacle")) //충돌시 데미지 처리
+        {
+            
+            GameManager.Instance.TakeDamage(50); // 충돌시 5 데미지
+        }
 
 
 
