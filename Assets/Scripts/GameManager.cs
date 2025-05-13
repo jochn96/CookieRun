@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
             score += Time.deltaTime * 10f;
             UpdateScoreUI();
         }
+
+
     }
 
     public void TakeDamage(int amount)
@@ -124,5 +126,21 @@ public class GameManager : MonoBehaviour
 
         if (deathUI != null) // 게임오버 UI 표시
             deathUI.SetActive(true);
+    }
+        public void ResetGame()
+    {
+        //체력 초기화
+        ResetHealth();
+
+        //점수 초기화
+        score = 0f;
+        isGameOver = false;
+
+        //UI 초기화
+        UpdateScoreUI();
+
+        //게임 오버 패널 끄기
+        if (deathUI != null)
+            deathUI.SetActive(false);
     }
 }
