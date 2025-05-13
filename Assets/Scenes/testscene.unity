@@ -2198,6 +2198,7 @@ MonoBehaviour:
   jumpForce: 8
   isDead: 0
   slideSpeed: 3
+  fallMultiplier: 3.5
   deathUI: {fileID: 846909586}
   godMode: 0
   groundCheck: {fileID: 1371277257}
