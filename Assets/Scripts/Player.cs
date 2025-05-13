@@ -55,28 +55,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
-        {
-
-        }
-        else
+        if (!isDead)
         {
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-            {
                 isJump = true;
-                
-
-
-            }
-
             else if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
-            {
                 isSlide = true;
-            }
             else
-            {
                 isSlide = false;
-            }
 
             //animator.SetBool("isJump", !isGrounded);   ¶¥ÀÌ ¾Æ´Ò½Ã Á¡ÇÁ¸ð¼Ç
 
