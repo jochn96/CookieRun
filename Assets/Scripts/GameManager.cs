@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     
     private bool isGameOver = false;
 
+    public int difficultyLevel;
+
 
     private void Awake()
     {
