@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject deathUI;
 
-    public Text scoreText;  //현재 점수
-    public Text highScoreText; //최고 점수
+    public Text scoreText;  //현재 점수 텍스트UI
+    public Text highScoreText; //최고 점수 텍스트UI
     public TMP_Text resultScoreText; // 결과창 현재점수
     public TMP_Text resultHighScoreText; // 결과창 최고점수
-    private float score = 0f;
+    private float currentScore = 0f;
     private float highScore = 0f;
     
     private bool isGameOver = false;
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameOver)
         {
-            score += Time.deltaTime * 10f;
+            currentScore += Time.deltaTime * 10f;
             UpdateScoreUI();
         }
 
@@ -172,20 +172,21 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateScoreUI() //점수 반영
-    {
-        if (scoreText != null)
-            scoreText.text = $"Score: {(int)score}";
-        if (highScoreText != null)
-            highScoreText.text = $"Best: {(int)highScore}";
-    }
+    {          
+            
+    if (scoreText != null)
+        scoreText.text = $"Score: {(int)currentScore}";
+    if (highScoreText != null)
+        highScoreText.text = $"Best: {(int)highScore}";
+}
 
     public void GameOverScoreCheck() //게임종료시 점수확인
     {
         isGameOver = true;
 
-        if (score > highScore)
+        if (currentScore > highScore)
         {
-            highScore = score;
+            highScore = currentScore;
             PlayerPrefs.SetFloat("HighScore", highScore);
             PlayerPrefs.Save();
         }
@@ -193,7 +194,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
 
         if (resultScoreText != null) //결과창에 현재점수 표시
-            resultScoreText.text = $"현재점수 : {(int)score}";
+            resultScoreText.text = $"현재점수 : {(int)currentScore}";
         if (resultHighScoreText != null) // 결과창에 최고점수 표시
             resultHighScoreText.text = $"최고점수 : {(int)highScore}";
 
@@ -212,7 +213,7 @@ public class GameManager : MonoBehaviour
         ResetHealth();
 
         //점수 초기화
-        score = 0f;
+        currentScore = 0f;
         
         isGameOver = false;
         if (scoreText != null)
@@ -227,4 +228,11 @@ public class GameManager : MonoBehaviour
         if (deathUI != null)
             deathUI.SetActive(false);
     }
+
+    public void AddScore(int amount) //코인 먹을시 점수 추가
+    {
+        currentScore += amount;
+        UpdateScoreUI();
+    }
+
 }
