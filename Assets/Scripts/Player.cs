@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
     public float slideSpeed = 3f; //슬라이딩 속도
     public GameObject deathUI;
 
-    //float deathCooldown = 0f; 데스 쿨다운은 필요 없을것 같아  주석처리
-
 
     bool isJump = false;
     bool isSlide = false;
@@ -56,15 +54,6 @@ public class Player : MonoBehaviour
     {
         if (isDead)
         {
-            //if (deathCooldown <= 0)
-            //{
-            //    //게임 재시작
-            //}
-            //else
-            //{
-            //    deathCooldown -= Time.deltaTime;
-            //}
-            // 이 부분도 UI 팝업으로 실행되어 필요없는 부분이라 주석처리.
 
         }
         else
