@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +14,15 @@ public class GameManager : MonoBehaviour
 
     public Slider healthBar;
 
+    public GameObject deathUI;
+
     public Text scoreText;  //현재 점수
     public Text highScoreText; //최고 점수
+    public TMP_Text resultScoreText; // 결과창 현재점수
+    public TMP_Text resultHighScoreText; // 결과창 최고점수
     private float score = 0f;
     private float highScore = 0f;
-
+    
     private bool isGameOver = false;
 
 
@@ -105,5 +111,18 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateScoreUI();
+
+        if (resultScoreText != null) //결과창에 현재점수 표시
+            resultScoreText.text = $"현재점수 : {(int)score}";
+        if (resultHighScoreText != null) // 결과창에 최고점수 표시
+            resultHighScoreText.text = $"최고점수 : {(int)highScore}";
+
+        if (scoreText != null) //결과창 출력시 오른쪽 상단의 현재점수와 최고점수 UI 숨김
+            scoreText.gameObject.SetActive(false);
+        if (highScoreText != null)
+            highScoreText.gameObject.SetActive(false);
+
+        if (deathUI != null) // 게임오버 UI 표시
+            deathUI.SetActive(true);
     }
 }

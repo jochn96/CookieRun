@@ -65,14 +65,6 @@ public class Player : MonoBehaviour
                 isSlide = false;
 
             //animator.SetBool("isJump", !isGrounded);   땅이 아닐시 점프모션
-
-            if (Input.GetKeyDown(KeyCode.K) && !isDead)    //테스트용으로 사망하는 코드 넣어놨습니다.
-            {                                              //필요 없으면 지워도 무방합니다!
-                isDead = true;
-                animator.SetInteger("IsDead", 1);
-                deathUI.SetActive(true);
-                Debug.Log("테스트용으로 캐릭터 사망 처리됨");
-            }
         }
     }
 
