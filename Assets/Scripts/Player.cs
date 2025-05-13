@@ -175,9 +175,10 @@ public class Player : MonoBehaviour
         isDead = true;
         animator.SetInteger("IsDead", 1);
         deathUI.SetActive(true);
-        //Time.timeScale = 0f; // 게임 정지
+        GameManager.Instance.GameOverScoreCheck(); //게임매니저 점수호출
+        Time.timeScale = 0f; // 게임 정지
     }
 
-   
+    
 
 }

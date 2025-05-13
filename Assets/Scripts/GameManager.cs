@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
 
     public Slider healthBar;
 
+    public Text scoreText;  //현재 점수
+    public Text highScoreText; //최고 점수
+    private float score = 0f;
+    private float highScore = 0f;
+
+    private bool isGameOver = false;
+
 
     private void Awake()
     {
@@ -30,6 +37,18 @@ public class GameManager : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateHealthBar(); //시작 시 체력바 초기화
+
+        highScore = PlayerPrefs.GetFloat("HighScore", 0f);
+        UpdateScoreUI();
+    }
+
+    private void Update()
+    {
+        if (!isGameOver)
+        {
+            score += Time.deltaTime * 10f;
+            UpdateScoreUI();
+        }
     }
 
     public void TakeDamage(int amount)
@@ -66,4 +85,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void UpdateScoreUI() //점수 반영
+    {
+        if (scoreText != null)
+            scoreText.text = $"Score: {(int)score}";
+        if (highScoreText != null)
+            highScoreText.text = $"Best: {(int)highScore}";
+    }
+
+    public void GameOverScoreCheck() //게임종료시 점수확인
+    {
+        isGameOver = true;
+
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetFloat("HighScore", highScore);
+            PlayerPrefs.Save();
+        }
+
+        UpdateScoreUI();
+    }
 }
