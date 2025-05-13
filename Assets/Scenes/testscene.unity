@@ -1307,17 +1307,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 938104736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77cafa118d446c74ab72c02bff089800, type: 3}
+  m_Script: {fileID: 11500000, guid: 4697745e828d1f744a8f0985ce8902d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 0
   healthBar: {fileID: 1732660844}
   deathUI: {fileID: 846909586}
   scoreText: {fileID: 1428600502}
   highScoreText: {fileID: 802181510}
   resultScoreText: {fileID: 1457557979}
   resultHighScoreText: {fileID: 2028159076}
+  timeElapsed: 0
+  difficultyLevel: 0
 --- !u!1 &943488596
 GameObject:
   m_ObjectHideFlags: 0
