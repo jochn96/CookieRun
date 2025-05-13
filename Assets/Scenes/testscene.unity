@@ -666,6 +666,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &498740957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1193677390053185057, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
+  m_PrefabInstance: {fileID: 2549017047183723931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +783,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8605168228078452639, guid: 971bc85d7fa448e418a77d3e14c14737, type: 3}
   m_PrefabInstance: {fileID: 743818402767360776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &585850220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7488495168548179527, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
+  m_PrefabInstance: {fileID: 2549017047183723931}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &626121705
 GameObject:
@@ -996,6 +1006,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5468264799314727150, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
   m_PrefabInstance: {fileID: 2549017047183723931}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &678896603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585850220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2118144d229467428e2de6d263225d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highPosY: 0
+  lowPosY: 0
+  topObject: {fileID: 0}
+  bottomObject1: {fileID: 498740957}
+  bottomObject2: {fileID: 0}
+  widthPadding: 25
+  totalPadding: 25
 --- !u!1 &802181508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,13 +1358,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 100
-  healthBar: {fileID: 1732660844}
-  deathUI: {fileID: 846909586}
-  scoreText: {fileID: 1428600502}
-  highScoreText: {fileID: 802181510}
-  resultScoreText: {fileID: 1457557979}
-  resultHighScoreText: {fileID: 2028159076}
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  deathUI: {fileID: 0}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
+  resultScoreText: {fileID: 0}
+  resultHighScoreText: {fileID: 0}
+  currentScore: 0
+  highScore: 0
+  isGameOver: 0
 --- !u!1 &943488596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2347,7 @@ GameObject:
   - component: {fileID: 1627177702}
   - component: {fileID: 1627177703}
   - component: {fileID: 1627177704}
+  - component: {fileID: 1627177705}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2448,6 +2481,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0214853, y: 1.2578275}
   m_EdgeRadius: 0
+--- !u!114 &1627177705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627177696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da73ec36d878fc479e7d32263b1e107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 7
+  speedIncreaseAmount: 1
+  speedIncreaseInterval: 20
+  maxSpeed: 15
 --- !u!1 &1732660842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,10 +3628,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: obstacle1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6940187587976281260, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7488495168548179527, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 678896603}
   m_SourcePrefab: {fileID: 100100000, guid: 91c7e092824dba64daa77ad4161e1adf, type: 3}
 --- !u!114 &2785909332444294741
 MonoBehaviour:

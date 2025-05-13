@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5468264799314727150}
-  - component: {fileID: 6940187587976281260}
   - component: {fileID: 7613694020891188676}
+  - component: {fileID: 3434565869111523739}
   m_Layer: 0
   m_Name: obstacle1
   m_TagString: Untagged
@@ -34,25 +34,6 @@ Transform:
   - {fileID: 1193677390053185057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6940187587976281260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7488495168548179527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4916cfa11d61949a006f06f576aaf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highPosY: 1
-  lowPosY: -1
-  topObject: {fileID: 0}
-  bottomObject1: {fileID: 1193677390053185057}
-  bottomObject2: {fileID: 0}
-  widthPadding: 10
-  totalPadding: 35
 --- !u!61 &7613694020891188676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -98,6 +79,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3434565869111523739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7488495168548179527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2118144d229467428e2de6d263225d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highPosY: 0
+  lowPosY: 0
+  topObject: {fileID: 0}
+  bottomObject1: {fileID: 1193677390053185057}
+  bottomObject2: {fileID: 0}
+  widthPadding: 5
+  totalPadding: 25
 --- !u!1 &9023517390073084968
 GameObject:
   m_ObjectHideFlags: 0
