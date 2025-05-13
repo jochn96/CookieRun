@@ -1,14 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                //인스턴스가 없으면 씬에서 찾기
+                _instance = FindObjectOfType<GameManager>();
+
+                //씬에도 없으면 새로 생성
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("GameManager");
+                    _instance = go.AddComponent<GameManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+
+
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -28,19 +51,36 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 유지
         }
         else
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //씬이 로드되면 초기화
+        ResetGame();
+    }
+
+    private void OnDestroy()
+    {
+        // 이벤트 구독 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // 인스턴스 참조 제거
+        if (_instance == this)
+            _instance = null;
     }
 
     private void Start()
     {
+        InitializeUIReferences();
         currentHealth = maxHealth;
         UpdateHealthBar(); //시작 시 체력바 초기화
 
@@ -56,6 +96,44 @@ public class GameManager : MonoBehaviour
             UpdateScoreUI();
         }
 
+
+    }
+    public void InitializeUIReferences()
+    {
+        // UI 요소들을 찾아서 변수에 할당
+        GameObject uiObject = GameObject.Find("UI");
+        if (uiObject != null)
+        {
+            // 각 UI 요소를 직접 찾아서 할당
+            Transform healthBarTransform = uiObject.transform.Find("HealthBar");
+            if (healthBarTransform != null)
+                healthBar = healthBarTransform.GetComponent<Slider>();
+
+            Transform scoreTextTransform = uiObject.transform.Find("ScoreText");
+            if (scoreTextTransform != null)
+                scoreText = scoreTextTransform.GetComponent<Text>();
+
+            Transform highScoreTextTransform = uiObject.transform.Find("HighScoreText");
+            if (highScoreTextTransform != null)
+                highScoreText = highScoreTextTransform.GetComponent<Text>();
+        }
+
+        // 결과창 요소 찾기
+        deathUI = Resources.FindObjectsOfTypeAll<GameObject>()
+                 .FirstOrDefault(g => g.name == "DeathUI");
+
+        if (deathUI != null)
+        {
+            Transform resultScoreTransform = deathUI.transform.Find("ResultScore");
+            if (resultScoreTransform != null)
+                resultScoreText = resultScoreTransform.GetComponent<TMP_Text>();
+
+            Transform resultHighScoreTransform = deathUI.transform.Find("ResultHighScore");
+            if (resultHighScoreTransform != null)
+                resultHighScoreText = resultHighScoreTransform.GetComponent<TMP_Text>();
+
+            deathUI.SetActive(false);
+        }
 
     }
 
@@ -129,15 +207,21 @@ public class GameManager : MonoBehaviour
     }
         public void ResetGame()
     {
+        InitializeUIReferences();
         //체력 초기화
         ResetHealth();
 
         //점수 초기화
         score = 0f;
+        
         isGameOver = false;
-
+        if (scoreText != null)
+            scoreText.gameObject.SetActive(true);
+        if (highScoreText != null)
+            highScoreText.gameObject.SetActive(true);
         //UI 초기화
         UpdateScoreUI();
+
 
         //게임 오버 패널 끄기
         if (deathUI != null)
