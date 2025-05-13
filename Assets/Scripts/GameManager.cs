@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
     
     private bool isGameOver = false;
 
-    public int difficultyLevel;
+    public float timeElapsed = 0f;
+    public int difficultyLevel = 0;
 
 
     private void Awake()
@@ -92,12 +93,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        timeElapsed += Time.deltaTime;
+
         if (!isGameOver)
         {
             currentScore += Time.deltaTime * 10f;
             UpdateScoreUI();
-        }
 
+        }
+        // 20초마다 난이도 증가
+        if ((int)(timeElapsed / 20f) > difficultyLevel)
+        {
+            difficultyLevel++;
+            Debug.Log("난이도 증가! 현재 레벨: " + difficultyLevel);
+        }
 
     }
     public void InitializeUIReferences()
