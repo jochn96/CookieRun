@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Obstacle : MonoBehaviour
 {
     public float highPosY = 0f;
     public float lowPosY = 0f;
 
-    
+
 
     public Transform topObject;
     public Transform bottomObject1;
     public Transform bottomObject2;
-        
+
 
     public float widthPadding = 25f;  //오브젝트 사이의 폭
 
@@ -42,9 +43,9 @@ public class Obstacle : MonoBehaviour
 
 
     }
+}
     
 
 
 
 
-}
