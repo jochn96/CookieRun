@@ -141,7 +141,8 @@ public class Player : MonoBehaviour
 
     public void RestartGame() //게임 재시작 기능 추가
     {
-        Time.timeScale = 1f; // 다시 시간 흐르게
+        Time.timeScale = 1f; //시간 다시 시간 흐르게
+        GameManager.Instance.ResetGame(); //점수 체력 UI 리셋
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

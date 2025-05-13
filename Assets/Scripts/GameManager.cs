@@ -1,14 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                //인스턴스가 없으면 씬에서 찾기
+                _instance = FindObjectOfType<GameManager>();
+
+                //씬에도 없으면 새로 생성
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("GameManager");
+                    _instance = go.AddComponent<GameManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+
+
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -16,37 +39,50 @@ public class GameManager : MonoBehaviour
 
     public GameObject deathUI;
 
-    public Text scoreText;  //현재 점수
-    public Text highScoreText; //최고 점수
+    public Text scoreText;  //현재 점수 텍스트UI
+    public Text highScoreText; //최고 점수 텍스트UI
     public TMP_Text resultScoreText; // 결과창 현재점수
     public TMP_Text resultHighScoreText; // 결과창 최고점수
-    private float score = 0f;
+    private float currentScore = 0f;
     private float highScore = 0f;
     
     private bool isGameOver = false;
 
-
-
-    public float timeElapsed = 0f;
-    public int difficultyLevel = 0;
+    public int difficultyLevel;
 
 
     private void Awake()
     {
-        if (Instance == null)
-
+        if (_instance == null)
         {
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 유지
         }
         else
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //씬이 로드되면 초기화
+        ResetGame();
+    }
+
+    private void OnDestroy()
+    {
+        // 이벤트 구독 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // 인스턴스 참조 제거
+        if (_instance == this)
+            _instance = null;
     }
 
     private void Start()
     {
+        InitializeUIReferences();
         currentHealth = maxHealth;
         UpdateHealthBar(); //시작 시 체력바 초기화
 
@@ -58,16 +94,49 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameOver)
         {
-
-            score += Time.deltaTime * 10f;
+            currentScore += Time.deltaTime * 10f;
             UpdateScoreUI();
         }
-        // 20초마다 난이도 증가
-        if ((int)(timeElapsed / 20f) > difficultyLevel)
+
+
+    }
+    public void InitializeUIReferences()
+    {
+        // UI 요소들을 찾아서 변수에 할당
+        GameObject uiObject = GameObject.Find("UI");
+        if (uiObject != null)
         {
-            difficultyLevel++;
-            Debug.Log("난이도 증가! 현재 레벨: " + difficultyLevel);
+            // 각 UI 요소를 직접 찾아서 할당
+            Transform healthBarTransform = uiObject.transform.Find("HealthBar");
+            if (healthBarTransform != null)
+                healthBar = healthBarTransform.GetComponent<Slider>();
+
+            Transform scoreTextTransform = uiObject.transform.Find("ScoreText");
+            if (scoreTextTransform != null)
+                scoreText = scoreTextTransform.GetComponent<Text>();
+
+            Transform highScoreTextTransform = uiObject.transform.Find("HighScoreText");
+            if (highScoreTextTransform != null)
+                highScoreText = highScoreTextTransform.GetComponent<Text>();
         }
+
+        // 결과창 요소 찾기
+        deathUI = Resources.FindObjectsOfTypeAll<GameObject>()
+                 .FirstOrDefault(g => g.name == "DeathUI");
+
+        if (deathUI != null)
+        {
+            Transform resultScoreTransform = deathUI.transform.Find("ResultScore");
+            if (resultScoreTransform != null)
+                resultScoreText = resultScoreTransform.GetComponent<TMP_Text>();
+
+            Transform resultHighScoreTransform = deathUI.transform.Find("ResultHighScore");
+            if (resultHighScoreTransform != null)
+                resultHighScoreText = resultHighScoreTransform.GetComponent<TMP_Text>();
+
+            deathUI.SetActive(false);
+        }
+
     }
 
     public void TakeDamage(int amount)
@@ -105,20 +174,21 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateScoreUI() //점수 반영
-    {
-        if (scoreText != null)
-            scoreText.text = $"Score: {(int)score}";
-        if (highScoreText != null)
-            highScoreText.text = $"Best: {(int)highScore}";
-    }
+    {          
+            
+    if (scoreText != null)
+        scoreText.text = $"Score: {(int)currentScore}";
+    if (highScoreText != null)
+        highScoreText.text = $"Best: {(int)highScore}";
+}
 
     public void GameOverScoreCheck() //게임종료시 점수확인
     {
         isGameOver = true;
 
-        if (score > highScore)
+        if (currentScore > highScore)
         {
-            highScore = score;
+            highScore = currentScore;
             PlayerPrefs.SetFloat("HighScore", highScore);
             PlayerPrefs.Save();
         }
@@ -126,7 +196,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
 
         if (resultScoreText != null) //결과창에 현재점수 표시
-            resultScoreText.text = $"현재점수 : {(int)score}";
+            resultScoreText.text = $"현재점수 : {(int)currentScore}";
         if (resultHighScoreText != null) // 결과창에 최고점수 표시
             resultHighScoreText.text = $"최고점수 : {(int)highScore}";
 
@@ -137,9 +207,34 @@ public class GameManager : MonoBehaviour
 
         if (deathUI != null) // 게임오버 UI 표시
             deathUI.SetActive(true);
-    
-           
+    }
+        public void ResetGame()
+    {
+        InitializeUIReferences();
+        //체력 초기화
+        ResetHealth();
+
+        //점수 초기화
+        currentScore = 0f;
+        
+        isGameOver = false;
+        if (scoreText != null)
+            scoreText.gameObject.SetActive(true);
+        if (highScoreText != null)
+            highScoreText.gameObject.SetActive(true);
+        //UI 초기화
+        UpdateScoreUI();
+
+
+        //게임 오버 패널 끄기
+        if (deathUI != null)
+            deathUI.SetActive(false);
     }
 
+    public void AddScore(int amount) //코인 먹을시 점수 추가
+    {
+        currentScore += amount;
+        UpdateScoreUI();
+    }
 
 }
