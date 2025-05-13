@@ -32,6 +32,9 @@ public class Obstacle : MonoBehaviour
 
         return placePosition;
 
+    }
+
+
 
 
 
