@@ -13,7 +13,10 @@ public class Player : MonoBehaviour
     public float jumpForce = 8f; //점프 속도
     public bool isDead = false;
     public float slideSpeed = 3f; //슬라이딩 속도
-    public GameObject deathUI;
+    public float fallMultiplier = 3.5f; //점프 하강시 받는 중력값
+
+    public GameObject deathUI; //게임오버 UI
+
 
 
     bool isJump = false;
@@ -115,6 +118,11 @@ public class Player : MonoBehaviour
         else
         {
             animator.SetBool("isSlide", false);
+        }
+
+        if (_rigidbody.velocity.y < 0) // 낙하 중일 때만 중력영향
+        {
+            velocity.y += Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
 
 
