@@ -1271,8 +1271,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 1732660844}
-  scoreText: {fileID: 1428600502}
-  highScoreText: {fileID: 802181510}
+  scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
 --- !u!1 &943488596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2198,7 @@ MonoBehaviour:
   jumpForce: 8
   isDead: 0
   slideSpeed: 3
+  fallMultiplier: 3.5
   deathUI: {fileID: 846909586}
   godMode: 0
   groundCheck: {fileID: 1371277257}
@@ -3083,10 +3084,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Result
+  m_text: "\uC810\uC218 \uACB0\uACFC!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce7fe37e10160714092f6a855e64a6a4, type: 2}
+  m_sharedMaterial: {fileID: -682900846932433885, guid: ce7fe37e10160714092f6a855e64a6a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3363,10 +3364,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ReStart!
+  m_text: "\uB2E4\uC2DC\uD558\uAE30!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce7fe37e10160714092f6a855e64a6a4, type: 2}
+  m_sharedMaterial: {fileID: -682900846932433885, guid: ce7fe37e10160714092f6a855e64a6a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
