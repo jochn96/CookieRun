@@ -4114,7 +4114,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC810\uD504 : SPACE\n\n\n\n\uC2AC\uB77C\uC774\uB529 : SHIFT"
+  m_text: "\uC810\uD504 : SPACE\n\n\uC2AC\uB77C\uC774\uB529 : SHIFT\n\n\uACF5\uACA9
+    : \uB9C8\uC6B0\uC2A4 \uC67C\uCABD\uBC84\uD2BC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce7fe37e10160714092f6a855e64a6a4, type: 2}
   m_sharedMaterial: {fileID: -682900846932433885, guid: ce7fe37e10160714092f6a855e64a6a4, type: 2}
