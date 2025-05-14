@@ -12,7 +12,6 @@ public class TitleSceneManager : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("게임 종료");
         Application.Quit(); //종료
     }
 }
