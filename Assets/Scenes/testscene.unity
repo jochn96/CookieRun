@@ -1597,7 +1597,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bec97e3561811ed4386e1f1f200d3919, type: 3}
   sfxSounds:
   - name: Coin
-    clip: {fileID: 8300000, guid: 33ac6152a9b18a84bb2c3ce9d5fa452a, type: 3}
+    clip: {fileID: 8300000, guid: d644764d632e599428b09084c030e700, type: 3}
   - name: Jump
     clip: {fileID: 8300000, guid: 6cf7db0e471ed3546b5064af48a3dcec, type: 3}
   - name: Hit
