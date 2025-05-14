@@ -38,11 +38,14 @@ public class GameManager : MonoBehaviour
     public Slider healthBar;
 
     public GameObject deathUI;
+    public GameObject gameGuideUI;
 
     public Text scoreText;  //현재 점수 텍스트UI
     public Text highScoreText; //최고 점수 텍스트UI
     public TMP_Text resultScoreText; // 결과창 현재점수
     public TMP_Text resultHighScoreText; // 결과창 최고점수
+    public static bool hasShownGuide = false; //가이드 최초 1회만 true
+
     private float currentScore = 0f;
     private float highScore = 0f;
     
@@ -83,10 +86,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // 게임 시작 가이드 표시
+        if (!hasShownGuide)
+        {
+            hasShownGuide = true;
+            if (gameGuideUI != null)
+            {
+                gameGuideUI.SetActive(true); // 처음 실행 시만 표시
+                Time.timeScale = 0f; // 가이드 팝업일때 게임 정지
+            }
+            else
+            { 
+                Time.timeScale = 1f; // 가이드 팝업이 없을 경우 게임 진행
+            }
+        }
+
         InitializeUIReferences();
         currentHealth = maxHealth;
         UpdateHealthBar(); //시작 시 체력바 초기화
-
         highScore = PlayerPrefs.GetFloat("HighScore", 0f);
         UpdateScoreUI();
     }
@@ -246,4 +263,11 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
     }
 
+    public void CloseGuide()
+    {
+        if (gameGuideUI != null)
+            gameGuideUI.SetActive(false);
+
+        Time.timeScale = 1f;
+    }
 }
