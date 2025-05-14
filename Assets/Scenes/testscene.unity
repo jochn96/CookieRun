@@ -2915,7 +2915,6 @@ GameObject:
   - component: {fileID: 1627177702}
   - component: {fileID: 1627177703}
   - component: {fileID: 1627177704}
-  - component: {fileID: 1627177705}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2953,7 +2952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf26122f86a3604ea47c1dfb1c2b18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  runSpeed: 7
+  speedIncreaseAmount: 1
+  speedIncreaseInterval: 10
+  maxSpeed: 20
 --- !u!50 &1627177702
 Rigidbody2D:
   serializedVersion: 4
@@ -3051,22 +3053,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0214853, y: 1.2578275}
   m_EdgeRadius: 0
---- !u!114 &1627177705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627177696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da73ec36d878fc479e7d32263b1e107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 7
-  speedIncreaseAmount: 3
-  speedIncreaseInterval: 10
-  maxSpeed: 50
 --- !u!1 &1672520525
 GameObject:
   m_ObjectHideFlags: 0
