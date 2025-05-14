@@ -58,7 +58,10 @@ public class Player : MonoBehaviour
         if (!isDead)
         {
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                SoundManager.Instance.PlaySFX("Jump");
                 isJump = true;
+            }
             else if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
                 isSlide = true;
             else
@@ -90,6 +93,7 @@ public class Player : MonoBehaviour
         // 슬라이드 처리
         if (isSlide)
         {
+
             velocity.x = slideSpeed;
             animator.SetBool("isSlide", true);            
         }

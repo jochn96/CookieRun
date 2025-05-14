@@ -1319,6 +1319,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846909586}
   m_CullTransparentMesh: 1
+--- !u!1 &885886728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885886730}
+  - component: {fileID: 885886729}
+  m_Layer: 0
+  m_Name: SoundsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &885886729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885886728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb575b616973c3048a8ca3c94d27a2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSounds:
+  - name: MainBGM
+    clip: {fileID: 8300000, guid: 45e0f0511c98a7f4abceaa45cb37a742, type: 3}
+  sfxSounds:
+  - name: Coin
+    clip: {fileID: 8300000, guid: 33ac6152a9b18a84bb2c3ce9d5fa452a, type: 3}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 6cf7db0e471ed3546b5064af48a3dcec, type: 3}
+  sfxChannelCount: 6
+--- !u!4 &885886730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885886728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938104736
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,7 +4141,8 @@ SceneRoots:
   - {fileID: 1627177698}
   - {fileID: 290781566}
   - {fileID: 1344844833}
-  - {fileID: 938104737}
   - {fileID: 4521251307363321418}
   - {fileID: 2285374823033591067}
   - {fileID: 718246981}
+  - {fileID: 938104737}
+  - {fileID: 885886730}
