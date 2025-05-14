@@ -270,4 +270,9 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1f;
     }
+
+    public void ReturnToTitle() // 타이틀 로드씬
+    { 
+        SceneManager.LoadScene("TitleScene");
+    }
 }
