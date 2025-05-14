@@ -9,6 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject[] obstaclePrefabs;
     public Transform spawnPoint;
+    public float spawnInterval = 5f;
 
     private Vector3 lastPosition;
 
@@ -16,7 +17,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         lastPosition = spawnPoint.position;
         SpawnObstacle(); // 첫 장애물
-        InvokeRepeating("SpawnObstacle", 2f, 2f);
+        InvokeRepeating("SpawnObstacle", spawnInterval, spawnInterval);
     }
 
     void SpawnObstacle()
