@@ -9,8 +9,6 @@ public class Obstacle : MonoBehaviour
     public float highPosY = 0f;
     public float lowPosY = 0f;
 
-
-
     public Transform topObject;
     public Transform bottomObject1;
     public Transform bottomObject2;
@@ -33,18 +31,13 @@ public class Obstacle : MonoBehaviour
         return placePosition;
     }
 
-
-
-
-        //Vector3 placePosition = lastPosition + new Vector3(widthPadding + totalPadding, 0);
-
-
-        //transform.position = placePosition;
-
-        //return placePosition;
-
-
-
+    void Update()
+    {
+        if (transform.position.x < Camera.main.transform.position.x - 15f) // 왼쪽 화면 밖으로
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }
 
