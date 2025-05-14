@@ -97,7 +97,7 @@ MonoBehaviour:
   bottomObject1: {fileID: 1193677390053185057}
   bottomObject2: {fileID: 0}
   widthPadding: 5
-  totalPadding: 10
+  totalPadding: 12
 --- !u!1 &9023517390073084968
 GameObject:
   m_ObjectHideFlags: 0

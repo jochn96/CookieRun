@@ -227,4 +227,4 @@ MonoBehaviour:
   bottomObject1: {fileID: 0}
   bottomObject2: {fileID: 4364780128072042301}
   widthPadding: 5
-  totalPadding: 10
+  totalPadding: 12

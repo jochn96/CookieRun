@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 7
-  speedIncreaseAmount: 5
+  speedIncreaseAmount: 3
   speedIncreaseInterval: 10
   maxSpeed: 50
 --- !u!1 &1672520525
@@ -3599,6 +3599,7 @@ MonoBehaviour:
   - {fileID: 8940454281470857344, guid: 971bc85d7fa448e418a77d3e14c14737, type: 3}
   - {fileID: 3433725615315448632, guid: 83555737a97de05478c08e092849770a, type: 3}
   spawnPoint: {fileID: 235860410}
+  spawnInterval: 1
 --- !u!1 &2028159074
 GameObject:
   m_ObjectHideFlags: 0
