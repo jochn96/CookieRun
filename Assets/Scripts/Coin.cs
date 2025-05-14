@@ -10,9 +10,10 @@ public class Coin : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-            
+                SoundManager.Instance.PlaySFX("Coin");
                 GameManager.Instance.AddScore(coinValue); //GameManager에 점수 추가 메서드 호출
                 Destroy(gameObject); //코인 제거
+
             }
         }
     

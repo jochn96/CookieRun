@@ -66,9 +66,13 @@ public class BgLooper : MonoBehaviour
             return;
         }
 
-        
+        else if (collision.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+        }
 
-        
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
