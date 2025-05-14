@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSounds:
   - name: MainBGM
-    clip: {fileID: 8300000, guid: 45e0f0511c98a7f4abceaa45cb37a742, type: 3}
+    clip: {fileID: 8300000, guid: bec97e3561811ed4386e1f1f200d3919, type: 3}
   sfxSounds:
   - name: Coin
     clip: {fileID: 8300000, guid: 33ac6152a9b18a84bb2c3ce9d5fa452a, type: 3}
@@ -4834,6 +4834,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &7905101224636252205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371914238015422902, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009841305918147928, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
+      propertyPath: m_Name
+      value: Monster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef6856f1c401e5b4c9f3df995d8b0f7e, type: 3}
 --- !u!222 &8682319101036412815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4857,3 +4914,4 @@ SceneRoots:
   - {fileID: 235860410}
   - {fileID: 885886730}
   - {fileID: 938104737}
+  - {fileID: 7905101224636252205}
