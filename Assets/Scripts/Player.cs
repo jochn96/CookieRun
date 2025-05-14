@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public GameObject deathUI; //게임오버 UI
        
-
+    
 
     bool isJump = false;
     bool isSlide = false;
@@ -30,12 +30,18 @@ public class Player : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
 
+    [Header("콜라이더 설정")]
+    private BoxCollider2D playerCollider;
+    private Vector2 originalColliderSize;
+    private Vector2 slideColliderSize;
+    public float slideColliderheight = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
 
         if (animator == null)
             Debug.LogError("애니메이터 없음");
@@ -43,6 +49,8 @@ public class Player : MonoBehaviour
         if (_rigidbody == null)
             Debug.LogError("리지드바디 없음");
 
+        originalColliderSize = playerCollider.size;
+        slideColliderSize = new Vector2(originalColliderSize.x, originalColliderSize.y * slideColliderheight);
 
         isJump = false;
         isSlide = false;
@@ -62,10 +70,16 @@ public class Player : MonoBehaviour
                 SoundManager.Instance.PlaySFX("Jump");
                 isJump = true;
             }
-            else if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
+            else if (Input.GetKey(KeyCode.LeftShift))       
+            {
+                SetSlideCollider(true);
                 isSlide = true;
+            }
             else
+            {
+                SetSlideCollider(false);
                 isSlide = false;
+            }
 
             //animator.SetBool("isJump", !isGrounded);   땅이 아닐시 점프모션
         }
@@ -126,6 +140,7 @@ public class Player : MonoBehaviour
         {
             SoundManager.Instance.PlaySFX("Hit");
             animator.SetBool("isHit", true);
+
             GameManager.Instance.TakeDamage(15); // 충돌시 15 데미지
         }
 
@@ -141,7 +156,7 @@ public class Player : MonoBehaviour
 
         if (isDead) return;
 
-        
+        animator.SetBool("isHit", false);
     }
 
     public void RestartGame() //게임 재시작 기능 추가
@@ -158,8 +173,33 @@ public class Player : MonoBehaviour
         deathUI.SetActive(true);
         GameManager.Instance.GameOverScoreCheck(); //게임매니저 점수호출
         Time.timeScale = 0f; // 게임 정지
+        if (isSlide)
+        {
+            SetSlideCollider(false);
+            isSlide = false;
+        }
+
+
     }
 
+
+    private void SetSlideCollider(bool isSlide)
+    {
+         
+        if (isSlide)
+        {
+            // 슬라이딩 크기로 변경
+            playerCollider.size = slideColliderSize;
+            
+        }
+        else
+        {
+            // 원래 크기로 복원
+            playerCollider.size = originalColliderSize;
+            
+        } 
+    }
     
+
 
 }
