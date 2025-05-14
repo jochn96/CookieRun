@@ -1356,6 +1356,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 33ac6152a9b18a84bb2c3ce9d5fa452a, type: 3}
   - name: Jump
     clip: {fileID: 8300000, guid: 6cf7db0e471ed3546b5064af48a3dcec, type: 3}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 9a17470dba0cc9a4b91e9ca9a7a1b49a, type: 3}
   sfxChannelCount: 6
 --- !u!4 &885886730
 Transform:

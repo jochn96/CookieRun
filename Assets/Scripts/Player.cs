@@ -124,7 +124,8 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle")) //충돌시 데미지 처리
         {
-            
+            SoundManager.Instance.PlaySFX("Hit");
+            animator.SetBool("isHit", true);
             GameManager.Instance.TakeDamage(15); // 충돌시 15 데미지
         }
 
