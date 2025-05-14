@@ -83,6 +83,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.SetBGMVolume(1.0f);
+        SoundManager.Instance.SetSFXVolume(1.0f);
+
+        SoundManager.Instance.PlayBGM("MainBGM");
         InitializeUIReferences();
         currentHealth = maxHealth;
         UpdateHealthBar(); //시작 시 체력바 초기화
