@@ -216,8 +216,9 @@ public class GameManager : MonoBehaviour
         {
             highScore = currentScore;
             PlayerPrefs.SetFloat("HighScore", highScore);
-            PlayerPrefs.Save();
         }
+        ScoreManager.SaveScore((int)currentScore); //타이틀씬 점수랭킹에 저장
+        PlayerPrefs.Save();
 
         UpdateScoreUI();
 
