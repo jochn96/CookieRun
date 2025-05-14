@@ -14,24 +14,24 @@ public class BgLooper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Obstacle[] obstacles = GameObject.FindObjectsOfType<Obstacle>();
-        obstacleCount = obstacles.Length;
+        //Obstacle[] obstacles = GameObject.FindObjectsOfType<Obstacle>();
+        //obstacleCount = obstacles.Length;
 
-        if (obstacleCount == 0)
-        {
-            return;
-        }
+        //if (obstacleCount == 0)
+        //{
+        //    return;
+        //}
 
-        obstacleLastPosition = obstacles[0].transform.position;
+        //obstacleLastPosition = obstacles[0].transform.position;
 
 
-        for (int i = 0; i < obstacleCount; i++)
-        {
+        //for (int i = 0; i < obstacleCount; i++)
+        //{
             
-            obstacleLastPosition = obstacles[i].transform.position;
-            Debug.Log(obstacleLastPosition);
-            obstacleLastPosition = obstacles[i].SetRandomPlace(obstacleLastPosition, obstacleCount);
-        }
+        //    obstacleLastPosition = obstacles[i].transform.position;
+        //    Debug.Log(obstacleLastPosition);
+        //    obstacleLastPosition = obstacles[i].SetRandomPlace(obstacleLastPosition, obstacleCount);
+        //}
 
 
     }
