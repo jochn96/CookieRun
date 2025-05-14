@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     Animator animator;
     Rigidbody2D _rigidbody;
-
+    [Header("플레이어 설정")]
     public float moveSpeed = 3f; //움직이는 속도
     public float jumpForce = 8f; //점프 속도
     public bool isDead = false;
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public float fallMultiplier = 3.5f; //점프 하강시 받는 중력값
 
     public GameObject deathUI; //게임오버 UI
-
+       
 
 
     bool isJump = false;

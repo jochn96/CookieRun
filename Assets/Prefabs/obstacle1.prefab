@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5468264799314727150}
   - component: {fileID: 7613694020891188676}
   - component: {fileID: 3434565869111523739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: obstacle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   bottomObject1: {fileID: 1193677390053185057}
   bottomObject2: {fileID: 0}
   widthPadding: 5
-  totalPadding: 25
+  totalPadding: 40
 --- !u!1 &9023517390073084968
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1193677390053185057}
   - component: {fileID: 4091544178644402701}
   - component: {fileID: 7886506590750637424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: parion obj1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

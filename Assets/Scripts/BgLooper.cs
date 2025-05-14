@@ -68,7 +68,7 @@ public class BgLooper : MonoBehaviour
 
         else if (collision.CompareTag("Coin"))
         {
-            
+            Destroy(collision.gameObject);
         }
 
 

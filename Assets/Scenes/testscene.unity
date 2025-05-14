@@ -1028,6 +1028,9 @@ MonoBehaviour:
   spawnInterval: 2
   spawnXOffset: 15
   player: {fileID: 1627177698}
+  ObstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &802181508
 GameObject:
   m_ObjectHideFlags: 0
