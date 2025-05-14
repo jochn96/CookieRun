@@ -144,6 +144,14 @@ public class Player : MonoBehaviour
             GameManager.Instance.TakeDamage(15); // 충돌시 15 데미지
         }
 
+        else if (collision.gameObject.CompareTag("Monster"))
+        {
+            SoundManager.Instance.PlaySFX("Hit");
+            animator.SetBool("isHit", true);
+
+            GameManager.Instance.TakeDamage(15); // 충돌시 20 데미지
+        }
+
 
 
 
