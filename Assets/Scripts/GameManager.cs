@@ -243,12 +243,12 @@ public class GameManager : MonoBehaviour
         public void ResetGame()
     {
         InitializeUIReferences();
-        //체력 초기화
-        ResetHealth();
+        ResetHealth(); // 체력 초기화
+        currentScore = 0f; // 점수 초기화
+        timeElapsed = 0f; // 시간 초기화
+        difficultyLevel = 0; //난이도 초기화
 
-        //점수 초기화
-        currentScore = 0f;
-        
+
         isGameOver = false;
         if (scoreText != null)
             scoreText.gameObject.SetActive(true);
@@ -257,10 +257,12 @@ public class GameManager : MonoBehaviour
         //UI 초기화
         UpdateScoreUI();
 
-
         //게임 오버 패널 끄기
         if (deathUI != null)
             deathUI.SetActive(false);
+
+        
+        Time.timeScale = 1f; // 게임 시간 흐르게
     }
 
     public void AddScore(int amount) //코인 먹을시 점수 추가

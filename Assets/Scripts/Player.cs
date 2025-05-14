@@ -182,6 +182,7 @@ public class Player : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
 
     private void SetSlideCollider(bool isSlide)
     {
@@ -202,4 +203,7 @@ public class Player : MonoBehaviour
     
 
 
+=======
+   
+>>>>>>> feature/김준희
 }
