@@ -101,9 +101,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        SoundManager.Instance.SetBGMVolume(0.5f);
+        SoundManager.Instance.SetSFXVolume(0.8f);
+
+        SoundManager.Instance.PlayBGM("MainBGM");
         InitializeUIReferences();
         currentHealth = maxHealth;
         UpdateHealthBar(); //시작 시 체력바 초기화
+
         highScore = PlayerPrefs.GetFloat("HighScore", 0f);
         UpdateScoreUI();
     }
