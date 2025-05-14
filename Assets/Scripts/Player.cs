@@ -159,6 +159,5 @@ public class Player : MonoBehaviour
         Time.timeScale = 0f; // 게임 정지
     }
 
-    
-
+   
 }
