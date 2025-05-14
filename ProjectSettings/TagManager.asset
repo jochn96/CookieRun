@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Obstacle
   - Coin
+  - Monster
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

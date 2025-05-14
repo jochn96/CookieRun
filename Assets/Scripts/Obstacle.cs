@@ -12,11 +12,12 @@ public class Obstacle : MonoBehaviour
     public Transform topObject;
     public Transform bottomObject1;
     public Transform bottomObject2;
+    public Transform monster;
+    
 
+    public float widthPadding = 5f;  //오브젝트 사이의 폭
 
-    public float widthPadding = 25f;  //오브젝트 사이의 폭
-
-    public float totalPadding = 65f;
+    public float totalPadding = 12f;
 
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obstaclCount)
     {

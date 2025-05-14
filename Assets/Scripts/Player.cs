@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
             SoundManager.Instance.PlaySFX("Hit");
             animator.SetBool("isHit", true);
 
-            GameManager.Instance.TakeDamage(15); // 충돌시 20 데미지
+            GameManager.Instance.TakeDamage(20); // 충돌시 20 데미지
         }
 
 
