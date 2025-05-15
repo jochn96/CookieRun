@@ -36,9 +36,12 @@ public class Player : MonoBehaviour
     private Vector2 slideColliderSize;
     public float slideColliderheight = 0.1f;
 
+    public AutoRun autorun;
+
     // Start is called before the first frame update
     void Start()
     {
+        autorun = GetComponent<AutoRun>();
         animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
@@ -56,7 +59,7 @@ public class Player : MonoBehaviour
         isSlide = false;
 
 
-
+        
 
     }
 
@@ -178,9 +181,10 @@ public class Player : MonoBehaviour
     {
         isDead = true;
         animator.SetInteger("IsDead", 1);
-        deathUI.SetActive(true);
-        GameManager.Instance.GameOverScoreCheck(); //게임매니저 점수호출
-        Time.timeScale = 0f; // 게임 정지
+        autorun.runSpeed = 0.0f;
+        //deathUI.SetActive(true);
+        //GameManager.Instance.GameOverScoreCheck(); //게임매니저 점수호출
+        //Time.timeScale = 0f; // 게임 정지
         if (isSlide)
         {
             SetSlideCollider(false);

@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public Animator animator;
     public BoxCollider2D attackCollider; // <<<< 수정됨 : 공격 판정용 콜라이더
-
+    public Player player;
     public bool isattack = false;
 
     void Awake()
@@ -14,13 +14,14 @@ public class PlayerAttack : MonoBehaviour
         if (animator == null)
         {
             animator = GetComponentInChildren<Animator>();
+            player = GetComponent<Player>();
         }
     }
 
     private void Start()
     {
         DisableAttackCollider();
-
+        
     }
 
     void Update()
@@ -47,6 +48,12 @@ public class PlayerAttack : MonoBehaviour
     {
         attackCollider.enabled = true;
         isattack = false;
+    }
+
+    public void playerDie()
+    {
+        player.deathUI.SetActive(true);
+        GameManager.Instance.GameOverScoreCheck();
     }
 }
 
